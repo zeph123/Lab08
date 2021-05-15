@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Lab08</string>
+
+    <string name="skladuj">SKLADUJ</string>
+    <string name="wydaj">WYDAJ</string>
+    <string name="jednostka">kg</string>
+</resources>
