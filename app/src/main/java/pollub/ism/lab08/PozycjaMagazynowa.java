@@ -3,9 +3,6 @@ package pollub.ism.lab08;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Entity(tableName = "Warzywniak")
 public class PozycjaMagazynowa {
 

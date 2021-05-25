@@ -9,8 +9,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 
 import java.time.ZoneId;
-import java.util.ArrayList;
-import java.util.List;
 
 import pollub.ism.lab08.databinding.ActivityMainBinding;
 
