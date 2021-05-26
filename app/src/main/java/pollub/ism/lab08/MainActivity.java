@@ -66,6 +66,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        binding.przyciskWyczyscHistorieTransakcji.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                wyczyscHistorieTransakcji();
+            }
+        });
+
+
+
         binding.spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -120,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
 
         switch (operacja){
             case SKLADUJ:
-                {
+            {
                 nowaIlosc = wybraneWarzywoIlosc + zmianaIlosci;
                 // --
                 // ustalenie starej ilosci
@@ -142,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
                 // --
             } break;
             case WYDAJ:
-                {
+            {
                 nowaIlosc = wybraneWarzywoIlosc - zmianaIlosci;
                 // --
                 // ustalenie starej ilosci
@@ -168,6 +177,13 @@ public class MainActivity extends AppCompatActivity {
         bazaDanych.pozycjaMagazynowaDAO().updateQuantityByName(wybraneWarzywoNazwa,nowaIlosc);
         bazaDanych.pozycjaMagazynowaDAO().updateModificationDateByName(wybraneWarzywoNazwa,pelnaData);
         bazaDanych.pozycjaMagazynowaDAO().updateFullHistoryByName(wybraneWarzywoNazwa,historia);
+
+        aktualizuj();
+    }
+
+    private void wyczyscHistorieTransakcji(){
+
+        bazaDanych.pozycjaMagazynowaDAO().updateFullHistoryByName(wybraneWarzywoNazwa,null);
 
         aktualizuj();
     }

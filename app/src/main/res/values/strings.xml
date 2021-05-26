@@ -3,5 +3,6 @@
 
     <string name="skladuj">SKLADUJ</string>
     <string name="wydaj">WYDAJ</string>
+    <string name="wyczysc">WYCZYSC HISTORIE TRANSAKCJI</string>
     <string name="jednostka">kg</string>
 </resources>

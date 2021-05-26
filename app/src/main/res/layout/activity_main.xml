@@ -100,6 +100,15 @@
 
         </LinearLayout>
 
+        <Button
+            android:id="@+id/przyciskWyczyscHistorieTransakcji"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:insetLeft="6dp"
+            android:insetRight="6dp"
+            android:text="@string/wyczysc" />
+
         <TextView
             android:id="@+id/historiaWarzywa"
             android:layout_width="match_parent"
