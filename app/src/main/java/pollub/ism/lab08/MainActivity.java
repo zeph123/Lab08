@@ -38,11 +38,17 @@ public class MainActivity extends AppCompatActivity {
         if(bazaDanych.pozycjaMagazynowaDAO().size() == 0){
             String[] asortyment = getResources().getStringArray(R.array.Asortyment);
             for(String nazwa : asortyment){
+
                 PozycjaMagazynowa pozycjaMagazynowa = new PozycjaMagazynowa();
-                pozycjaMagazynowa.NAME = nazwa; pozycjaMagazynowa.QUANTITY = 0;
+                pozycjaMagazynowa.NAME = nazwa;
+                pozycjaMagazynowa.QUANTITY = 0;
                 pozycjaMagazynowa.MODIFICATION_DATE = null;
-                pozycjaMagazynowa.FULL_HISTORY = null;
-                bazaDanych.pozycjaMagazynowaDAO().insert(pozycjaMagazynowa);
+
+                PozycjaTransakcyjna pozycjaTransakcyjna = new PozycjaTransakcyjna();
+                pozycjaTransakcyjna.NAME = nazwa;
+                pozycjaTransakcyjna.FULL_HISTORY = null;
+
+                bazaDanych.pozycjaMagazynowaDAO().insert(pozycjaMagazynowa,pozycjaTransakcyjna);
             }
         }
 

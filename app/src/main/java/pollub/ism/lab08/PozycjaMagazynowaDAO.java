@@ -9,10 +9,10 @@ import androidx.room.Update;
 public interface PozycjaMagazynowaDAO {
 
     @Insert  //Automatyczna kwerenda wystarczy
-    public void insert(PozycjaMagazynowa pozycja);
+    public void insert(PozycjaMagazynowa pozycja, PozycjaTransakcyjna pozycja2);
 
     @Update //Automatyczna kwerenda wystarczy
-    void update(PozycjaMagazynowa pozycja);
+    void update(PozycjaMagazynowa pozycja, PozycjaTransakcyjna pozycja2);
 
     @Query("SELECT QUANTITY FROM Warzywniak WHERE NAME= :wybraneWarzywoNazwa") //Nasza kwerenda
     int findQuantityByName(String wybraneWarzywoNazwa);
@@ -29,11 +29,11 @@ public interface PozycjaMagazynowaDAO {
     void updateModificationDateByName(String wybraneWarzywoNazwa, String wybraneWarzywoNowaData);
 
     // znalezienie daty oraz czasu modyfikacji ilości warzywa
-    @Query("SELECT FULL_HISTORY FROM Warzywniak WHERE NAME= :wybraneWarzywoNazwa")
+    @Query("SELECT FULL_HISTORY FROM Transakcje WHERE NAME= :wybraneWarzywoNazwa")
     String findFullHistoryByName(String wybraneWarzywoNazwa);
 
     // uzupełnienie historii modyfikacji dla wybranego warzywa
-    @Query("UPDATE Warzywniak SET FULL_HISTORY = :wybraneWarzywoHistoria WHERE NAME= :wybraneWarzywoNazwa")
+    @Query("UPDATE Transakcje SET FULL_HISTORY = :wybraneWarzywoHistoria WHERE NAME= :wybraneWarzywoNazwa")
     void updateFullHistoryByName(String wybraneWarzywoNazwa, String wybraneWarzywoHistoria);
 
     @Query("SELECT COUNT(*) FROM Warzywniak") //Ile jest rekordów w tabeli
